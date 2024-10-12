@@ -10,7 +10,7 @@ home: https://acouvreur.github.io/sablier/#/
 sources:
   - "https://github.com/acouvreur/sablier"
 maintainers:
-  - name: acouvreur # Alexis Couvreur
+  - name: acouvreur  # Alexis Couvreur
     email: alexiscouvreur.pro@gmail.com
     url: https://github.com/acouvreur
 icon: https://raw.githubusercontent.com/sablierapp/artwork/refs/heads/main/icon/sablier-icon-color.png
