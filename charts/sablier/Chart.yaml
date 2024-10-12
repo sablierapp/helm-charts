@@ -1,7 +1,7 @@
 
 apiVersion: v2
 name: sablier
-version: 1.0.1
+version: 1.0.2
 appVersion: "1.8.0"
 description: A free and open-source software to start workloads on demand and stop them after a period of inactivity.
 type: application
