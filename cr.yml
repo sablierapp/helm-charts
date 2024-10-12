@@ -1,4 +1,8 @@
-sign: false
+# Set to true for GPG signing
+sign: true
+
+# UID of the GPG key to use
+key: Alexis Couvreur
 
 # Enable automatic generation of release notes using GitHubs release notes generator.
 # see: https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes
