@@ -1,15 +1,13 @@
 # sablier
 
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.8.0](https://img.shields.io/badge/AppVersion-1.8.0-informational?style=flat-square) 
+![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.8.1](https://img.shields.io/badge/AppVersion-1.8.1-informational?style=flat-square) 
 
 A free and open-source software to start workloads on demand and stop them after a period of inactivity.
 
-⚠️  **Please create issues relating to this Helm chart in the [Sablier](https://github.com/acouvreur/sablier/issues) repo.**
-
 ## Source Code
 
-* <https://github.com/acouvreur/sablier>
+* <https://github.com/sablierapp/sablier>
 
 
 
@@ -51,7 +49,7 @@ A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an 
 | deploymentAnnotations | object | `{}` | Annotations for all deployed Deployments |
 | deploymentLabels | object | `{}` | Labels for all deployed Deployments |
 | deploymentStrategy | object | `{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"}` | Deployment strategy for all deployed Deployments |
-| image.repository | string | `"acouvreur/sablier"` | Sablier image repository |
+| image.repository | string | `"sablierapp/sablier"` | Sablier image repository |
 | image.tag | string | `""` | Sablier image tag (deafult) appVersion |
 | imagePullPolicy | string | `"IfNotPresent"` | Sablier imagePullPolicy |
 | livenessProbe | object | `{"failureThreshold":3,"httpGet":{"path":"/health","port":10000},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1}` | Sablier livenessProbe |
