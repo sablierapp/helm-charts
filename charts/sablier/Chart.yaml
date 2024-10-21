@@ -1,14 +1,14 @@
 apiVersion: v2
 name: sablier
-version: 1.0.2
-appVersion: "1.8.0"
+version: 1.0.3
+appVersion: "1.8.1"
 description: A free and open-source software to start workloads on demand and stop them after a period of inactivity.
 type: application
 keywords:
   - Orchestration & Management
-home: https://acouvreur.github.io/sablier/#/
+home: https://sablierapp.dev/
 sources:
-  - "https://github.com/acouvreur/sablier"
+  - "https://github.com/sablierapp/sablier"
 maintainers:
   - name: acouvreur  # Alexis Couvreur
     email: alexiscouvreur.pro@gmail.com
