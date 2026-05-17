@@ -23,6 +23,10 @@ replicas: 1
 # -- Sablier log level
 logLevel: "trace"
 
+# -- Extra CLI arguments appended to the sablier container args
+# (e.g. - --server.metrics.enabled=true to expose Prometheus /metrics)
+extraArgs: []
+
 image:
   # -- Sablier image repository
   repository: "sablierapp/sablier"

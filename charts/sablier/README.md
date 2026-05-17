@@ -1,15 +1,12 @@
 # sablier
 
-
-![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.8.1](https://img.shields.io/badge/AppVersion-1.8.1-informational?style=flat-square) 
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.8.1](https://img.shields.io/badge/AppVersion-1.8.1-informational?style=flat-square)
 
 A free and open-source software to start workloads on demand and stop them after a period of inactivity.
 
 ## Source Code
 
 * <https://github.com/sablierapp/sablier>
-
-
 
 ## Get Repo Info
 
@@ -49,6 +46,7 @@ A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an 
 | deploymentAnnotations | object | `{}` | Annotations for all deployed Deployments |
 | deploymentLabels | object | `{}` | Labels for all deployed Deployments |
 | deploymentStrategy | object | `{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"}` | Deployment strategy for all deployed Deployments |
+| extraArgs | list | `[]` | Extra CLI arguments appended to the sablier container args (e.g. - --server.metrics.enabled=true to expose Prometheus /metrics) |
 | image.repository | string | `"sablierapp/sablier"` | Sablier image repository |
 | image.tag | string | `""` | Sablier image tag (deafult) appVersion |
 | imagePullPolicy | string | `"IfNotPresent"` | Sablier imagePullPolicy |

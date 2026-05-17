@@ -38,7 +38,13 @@ spec:
         - name: sablier
           image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
-          args: ["start", "--provider.name=kubernetes", "--logging.level={{ .Values.logLevel}}"]
+          args:
+            - start
+            - --provider.name=kubernetes
+            - --logging.level={{ .Values.logLevel }}
+          {{- with .Values.extraArgs }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           ports:
             - containerPort: 10000
         {{- with .Values.livenessProbe }}
