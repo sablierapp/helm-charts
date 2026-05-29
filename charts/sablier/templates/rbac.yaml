@@ -17,6 +17,17 @@ rules:
       - update # Scale up and down
       - list # Events
       - watch # Events
+  {{- if .Values.rbac.cnpg }}
+  - apiGroups:
+      - postgresql.cnpg.io
+    resources:
+      - clusters
+    verbs:
+      - get # Retrieve info about a specific cluster
+      - list # Discovery and events
+      - watch # Events
+      - patch # Toggle the hibernation annotation
+  {{- end }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding

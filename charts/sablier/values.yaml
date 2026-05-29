@@ -27,12 +27,17 @@ logLevel: "trace"
 # (e.g. - --server.metrics.enabled=true to expose Prometheus /metrics)
 extraArgs: []
 
+# -- Sablier's RBAC Configuration
+rbac:
+  # -- Enable CNPG integration necessary rights
+  cnpg: false
+
 image:
   # -- Sablier image repository
   repository: "sablierapp/sablier"
 
   # -- Sablier image tag
-  # (deafult) appVersion
+  # (default) appVersion
   tag: ""
 
 # -- Sablier imagePullPolicy
