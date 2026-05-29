@@ -21,7 +21,7 @@ deploymentStrategy:
 replicas: 1
 
 # -- Sablier log level
-logLevel: "trace"
+logLevel: "info"
 
 # -- Extra CLI arguments appended to the sablier container args
 # (e.g. - --server.metrics.enabled=true to expose Prometheus /metrics)

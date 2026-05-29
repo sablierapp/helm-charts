@@ -1,6 +1,6 @@
 # sablier
 
-![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.8.1](https://img.shields.io/badge/AppVersion-1.8.1-informational?style=flat-square)
+![Version: 1.2.1](https://img.shields.io/badge/Version-1.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.13.0](https://img.shields.io/badge/AppVersion-1.13.0-informational?style=flat-square)
 
 A free and open-source software to start workloads on demand and stop them after a period of inactivity.
 
@@ -48,12 +48,14 @@ A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an 
 | deploymentStrategy | object | `{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"}` | Deployment strategy for all deployed Deployments |
 | extraArgs | list | `[]` | Extra CLI arguments appended to the sablier container args (e.g. - --server.metrics.enabled=true to expose Prometheus /metrics) |
 | image.repository | string | `"sablierapp/sablier"` | Sablier image repository |
-| image.tag | string | `""` | Sablier image tag (deafult) appVersion |
+| image.tag | string | `""` | Sablier image tag (default) appVersion |
 | imagePullPolicy | string | `"IfNotPresent"` | Sablier imagePullPolicy |
 | livenessProbe | object | `{"failureThreshold":3,"httpGet":{"path":"/health","port":10000},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1}` | Sablier livenessProbe |
-| logLevel | string | `"trace"` | Sablier log level |
+| logLevel | string | `"info"` | Sablier log level |
 | podAnnotations | object | `{}` | Annotations for all deployed pods |
 | podLabels | object | `{}` | Labels for all deployed pods |
+| rbac | object | `{"cnpg":false}` | Sablier's RBAC Configuration |
+| rbac.cnpg | bool | `false` | Enable CNPG integration necessary rights |
 | readinessProbe | object | `{"failureThreshold":3,"httpGet":{"path":"/health","port":10000},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1}` | Sablier readinessProbe |
 | replicas | int | `1` | Sablier's replicas |
 | resources | object | `{}` | Resource limits and requests for sablier |
