@@ -2,6 +2,27 @@ apiVersion: v1
 entries:
   sablier:
   - apiVersion: v2
+    appVersion: 1.14.0
+    created: "2026-06-15T16:45:25.609622283Z"
+    description: A free and open-source software to start workloads on demand and
+      stop them after a period of inactivity.
+    digest: e2e173110df5ab1450da04ce83a03a2310f40572f4eda4fe74f5f7480bcff106
+    home: https://sablierapp.dev/
+    icon: https://raw.githubusercontent.com/sablierapp/artwork/refs/heads/main/icon/sablier-icon-color.png
+    keywords:
+    - Orchestration & Management
+    maintainers:
+    - email: alexiscouvreur.pro@gmail.com
+      name: acouvreur
+      url: https://github.com/acouvreur
+    name: sablier
+    sources:
+    - https://github.com/sablierapp/sablier
+    type: application
+    urls:
+    - https://github.com/sablierapp/helm-charts/releases/download/sablier-1.3.0/sablier-1.3.0.tgz
+    version: 1.3.0
+  - apiVersion: v2
     appVersion: 1.13.0
     created: "2026-05-29T18:29:35.591658185Z"
     description: A free and open-source software to start workloads on demand and
@@ -148,4 +169,4 @@ entries:
     urls:
     - https://github.com/sablierapp/helm-charts/releases/download/sablier-1.0.0/sablier-1.0.0.tgz
     version: 1.0.0
-generated: "2026-05-29T18:29:35.591684585Z"
+generated: "2026-06-15T16:45:25.609652279Z"
