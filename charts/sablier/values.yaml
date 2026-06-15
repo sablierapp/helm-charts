@@ -31,6 +31,8 @@ extraArgs: []
 rbac:
   # -- Enable CNPG integration necessary rights
   cnpg: false
+  # -- Enable OT-CONTAINER-KIT Redis operator necessary rights
+  otkRedis: false
 
 image:
   # -- Sablier image repository
