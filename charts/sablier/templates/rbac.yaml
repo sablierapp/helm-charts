@@ -28,6 +28,15 @@ rules:
       - watch # Events
       - patch # Toggle the hibernation annotation
   {{- end }}
+  {{- if .Values.rbac.otkRedis }}
+  - apiGroups:
+      - redis.redis.opstreelabs.in
+    resources:
+      - redis
+    verbs:
+      - get # Resolve the Redis CR owner of a StatefulSet
+      - patch # Toggle the skip-reconcile annotation
+  {{- end }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
