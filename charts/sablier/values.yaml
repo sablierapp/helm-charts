@@ -27,6 +27,10 @@ logLevel: "info"
 # (e.g. - --server.metrics.enabled=true to expose Prometheus /metrics)
 extraArgs: []
 
+# -- Extra environment variables for the sablier container
+# (e.g. TZ to control the local time used by `sablier.running-hours` windows)
+extraEnv: []
+
 # -- Extra volumes for the sablier pod
 # (e.g. a configMap volume with custom themes for --strategy.dynamic.custom-themes-path)
 extraVolumes: []

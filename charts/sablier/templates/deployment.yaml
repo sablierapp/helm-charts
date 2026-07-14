@@ -45,6 +45,10 @@ spec:
           {{- with .Values.extraArgs }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
+        {{- with .Values.extraEnv }}
+          env:
+          {{- toYaml . | nindent 12 }}
+        {{- end }}
           ports:
             - containerPort: 10000
         {{- with .Values.livenessProbe }}
