@@ -27,6 +27,14 @@ logLevel: "info"
 # (e.g. - --server.metrics.enabled=true to expose Prometheus /metrics)
 extraArgs: []
 
+# -- Extra volumes for the sablier pod
+# (e.g. a configMap volume with custom themes for --strategy.dynamic.custom-themes-path)
+extraVolumes: []
+
+# -- Extra volume mounts for the sablier container
+# (e.g. to mount custom themes loaded via --strategy.dynamic.custom-themes-path)
+extraVolumeMounts: []
+
 # -- Sablier's RBAC Configuration
 rbac:
   # -- Enable CNPG integration necessary rights
