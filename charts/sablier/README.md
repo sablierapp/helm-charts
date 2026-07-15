@@ -1,6 +1,6 @@
 # sablier
 
-![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.14.0](https://img.shields.io/badge/AppVersion-1.14.0-informational?style=flat-square)
+![Version: 1.4.0](https://img.shields.io/badge/Version-1.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.14.0](https://img.shields.io/badge/AppVersion-1.14.0-informational?style=flat-square)
 
 A free and open-source software to start workloads on demand and stop them after a period of inactivity.
 
@@ -47,6 +47,8 @@ A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an 
 | deploymentLabels | object | `{}` | Labels for all deployed Deployments |
 | deploymentStrategy | object | `{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"}` | Deployment strategy for all deployed Deployments |
 | extraArgs | list | `[]` | Extra CLI arguments appended to the sablier container args (e.g. - --server.metrics.enabled=true to expose Prometheus /metrics) |
+| extraVolumeMounts | list | `[]` | Extra volume mounts for the sablier container (e.g. to mount custom themes loaded via --strategy.dynamic.custom-themes-path) |
+| extraVolumes | list | `[]` | Extra volumes for the sablier pod (e.g. a configMap volume with custom themes for --strategy.dynamic.custom-themes-path) |
 | image.repository | string | `"sablierapp/sablier"` | Sablier image repository |
 | image.tag | string | `""` | Sablier image tag (default) appVersion |
 | imagePullPolicy | string | `"IfNotPresent"` | Sablier imagePullPolicy |
