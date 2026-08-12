@@ -39,10 +39,37 @@ The command removes all the Kubernetes components associated with the chart and 
 
 A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an incompatible breaking change needing manual actions. Until this chart's version reaches `v1.0`, there are no promises of backwards compatibility.
 
+## Configuration
+
+Sablier's own options go into the `config` value. The chart renders it into a ConfigMap and mounts it at `/etc/sablier/sablier.yml`, the first path Sablier searches at startup:
+
+```yaml
+config:
+  provider:
+    kubernetes:
+      qps: 64
+      burst: 128
+  sessions:
+    default-duration: 5m
+  webhooks:
+    endpoints:
+      - url: https://uptime.example.com/api/push/xxxxxxxx
+        events:
+          - started
+          - stopped
+```
+
+Every option from the [configuration reference](https://sablierapp.dev/reference/cli/) is accepted, including `webhooks`, which has no command-line flag.
+
+Two keys behave differently. `provider.name` is passed as a command-line flag and setting it under `config` has no effect. `logging.level` defaults to the `logLevel` value, and `config` overrides it.
+
+Options passed through `extraArgs` or `extraEnv` also take precedence over the file. Changing `config` or `logLevel` restarts the pods, because the pod template carries a checksum of the rendered file.
+
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| config | object | `{}` | Sablier's configuration file, mounted at `/etc/sablier/sablier.yml` (see the Configuration section above) |
 | deploymentAnnotations | object | `{}` | Annotations for all deployed Deployments |
 | deploymentLabels | object | `{}` | Labels for all deployed Deployments |
 | deploymentStrategy | object | `{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"}` | Deployment strategy for all deployed Deployments |
@@ -54,7 +81,7 @@ A major chart version change (like v1.2.3 -> v2.0.0) indicates that there is an 
 | image.tag | string | `""` | Sablier image tag (default) appVersion |
 | imagePullPolicy | string | `"IfNotPresent"` | Sablier imagePullPolicy |
 | livenessProbe | object | `{"failureThreshold":3,"httpGet":{"path":"/health","port":10000},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1}` | Sablier livenessProbe |
-| logLevel | string | `"info"` | Sablier log level |
+| logLevel | string | `"info"` | Sablier log level, rendered as `logging.level` into the config file. A `logging.level` set under `config` takes precedence. |
 | podAnnotations | object | `{}` | Annotations for all deployed pods |
 | podLabels | object | `{}` | Labels for all deployed pods |
 | rbac | object | `{"cnpg":false,"otkRedis":false}` | Sablier's RBAC Configuration |

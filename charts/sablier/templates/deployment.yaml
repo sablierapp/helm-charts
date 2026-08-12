@@ -28,9 +28,10 @@ spec:
 {{- with .Values.podLabels }}
     {{ toYaml . | nindent 8 }}
 {{- end }}
-{{- with .Values.podAnnotations }}
       annotations:
-    {{ toYaml . | nindent 8 }}
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+{{- with .Values.podAnnotations }}
+  {{- toYaml . | nindent 8 }}
 {{- end }}
     spec:
       serviceAccountName: sablier-{{ .Release.Name }}
@@ -41,7 +42,6 @@ spec:
           args:
             - start
             - --provider.name=kubernetes
-            - --logging.level={{ .Values.logLevel }}
           {{- with .Values.extraArgs }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
@@ -61,12 +61,19 @@ spec:
         {{- end }}
           resources:
         {{- toYaml .Values.resources | nindent 12 }}
-        {{- with .Values.extraVolumeMounts }}
           volumeMounts:
+            - name: config
+              mountPath: /etc/sablier/sablier.yml
+              subPath: sablier.yml
+              readOnly: true
+        {{- with .Values.extraVolumeMounts }}
           {{- toYaml . | nindent 12 }}
         {{- end }}
-    {{- with .Values.extraVolumes }}
       volumes:
+        - name: config
+          configMap:
+            name: sablier-{{ .Release.Name }}
+    {{- with .Values.extraVolumes }}
       {{- toYaml . | nindent 8 }}
     {{- end }}
 

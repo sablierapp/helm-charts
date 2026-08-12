@@ -20,8 +20,31 @@ deploymentStrategy:
 # -- Sablier's replicas
 replicas: 1
 
-# -- Sablier log level
+# -- Sablier log level, rendered as `logging.level` into the config file.
+# A `logging.level` set under `config` takes precedence.
 logLevel: "info"
+
+# -- Sablier's configuration file, mounted at `/etc/sablier/sablier.yml`
+# (see the Configuration section above)
+config: {}
+#  provider:
+#    # auto-warm-externally-started needs auto-stop-on-startup: false, which
+#    # otherwise scales those instances to zero before the warm watcher sees them
+#    auto-stop-on-startup: false
+#    auto-warm-externally-started: true
+#    kubernetes:
+#      qps: 64
+#      burst: 128
+#      delimiter: "."
+#      ready-on-first-replica: true
+#  sessions:
+#    default-duration: 5m
+#  webhooks:
+#    endpoints:
+#      - url: https://uptime.example.com/api/push/xxxxxxxx
+#        events:
+#          - started
+#          - stopped
 
 # -- Extra CLI arguments appended to the sablier container args
 # (e.g. - --server.metrics.enabled=true to expose Prometheus /metrics)
