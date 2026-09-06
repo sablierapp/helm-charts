@@ -102,6 +102,9 @@ livenessProbe:
   successThreshold: 1
   failureThreshold: 3
 
+# -- PriorityClass name for all deployed pods
+priorityClassName: ""
+
 # -- Resource limits and requests for sablier
 resources: {}
 # requests:

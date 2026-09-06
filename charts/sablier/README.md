@@ -1,6 +1,6 @@
 # sablier
 
-![Version: 1.7.1](https://img.shields.io/badge/Version-1.7.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
+![Version: 1.8.0](https://img.shields.io/badge/Version-1.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
 
 A free and open-source software to start workloads on demand and stop them after a period of inactivity.
 
@@ -84,6 +84,7 @@ Options passed through `extraArgs` or `extraEnv` also take precedence over the f
 | logLevel | string | `"info"` | Sablier log level, rendered as `logging.level` into the config file. A `logging.level` set under `config` takes precedence. |
 | podAnnotations | object | `{}` | Annotations for all deployed pods |
 | podLabels | object | `{}` | Labels for all deployed pods |
+| priorityClassName | string | `""` | PriorityClass name for all deployed pods |
 | rbac | object | `{"cnpg":false,"otkRedis":false}` | Sablier's RBAC Configuration |
 | rbac.cnpg | bool | `false` | Enable CNPG integration necessary rights |
 | rbac.otkRedis | bool | `false` | Enable OT-CONTAINER-KIT Redis operator necessary rights |
