@@ -35,6 +35,9 @@ spec:
 {{- end }}
     spec:
       serviceAccountName: sablier-{{ .Release.Name }}
+      {{- with .Values.priorityClassName }}
+      priorityClassName: {{ . }}
+      {{- end }}
       containers:
         - name: sablier
           image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
