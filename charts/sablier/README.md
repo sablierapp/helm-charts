@@ -1,6 +1,6 @@
 # sablier
 
-![Version: 1.8.0](https://img.shields.io/badge/Version-1.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
+![Version: 1.8.1](https://img.shields.io/badge/Version-1.8.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
 
 A free and open-source software to start workloads on demand and stop them after a period of inactivity.
 
@@ -9,6 +9,16 @@ A free and open-source software to start workloads on demand and stop them after
 * <https://github.com/sablierapp/sablier>
 
 ## Get Repo Info
+
+The chart is published both as an [OCI artifact](https://helm.sh/docs/topics/registries/) and as a classic Helm repository.
+
+With OCI there is nothing to add, so you can go straight to installing. Inspect a chart with:
+
+```console
+helm show chart oci://ghcr.io/sablierapp/helm-charts/sablier
+```
+
+To use the Helm repository instead:
 
 ```console
 helm repo add sablier https://sablierapp.github.io/helm-charts
@@ -19,7 +29,13 @@ _See [helm repo](https://helm.sh/docs/helm/helm_repo/) for command documentation
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release`:
+To install the chart with the release name `my-release` from the OCI registry (Helm 3.8+):
+
+```console
+helm install my-release oci://ghcr.io/sablierapp/helm-charts/sablier --version 1.8.1
+```
+
+Or from the Helm repository:
 
 ```console
 helm install my-release sablier/sablier
