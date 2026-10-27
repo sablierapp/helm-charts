@@ -1,6 +1,6 @@
 # sablier
 
-![Version: 1.8.1](https://img.shields.io/badge/Version-1.8.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
+![Version: 1.9.0](https://img.shields.io/badge/Version-1.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.1](https://img.shields.io/badge/AppVersion-1.16.1-informational?style=flat-square)
 
 A free and open-source software to start workloads on demand and stop them after a period of inactivity.
 
@@ -32,7 +32,7 @@ _See [helm repo](https://helm.sh/docs/helm/helm_repo/) for command documentation
 To install the chart with the release name `my-release` from the OCI registry (Helm 3.8+):
 
 ```console
-helm install my-release oci://ghcr.io/sablierapp/helm-charts/sablier --version 1.8.1
+helm install my-release oci://ghcr.io/sablierapp/helm-charts/sablier --version 1.9.0
 ```
 
 Or from the Helm repository:
@@ -96,8 +96,10 @@ Options passed through `extraArgs` or `extraEnv` also take precedence over the f
 | image.repository | string | `"sablierapp/sablier"` | Sablier image repository |
 | image.tag | string | `""` | Sablier image tag (default) appVersion |
 | imagePullPolicy | string | `"IfNotPresent"` | Sablier imagePullPolicy |
+| lifecycle | object | `{}` | Sablier container lifecycle hooks. The image has no shell, so use the native `sleep` action (Kubernetes >= 1.30) rather than an `exec` of `sleep`. A short preStop sleep keeps the old pod serving while Service endpoints are updated during rollouts and evictions. |
 | livenessProbe | object | `{"failureThreshold":3,"httpGet":{"path":"/health","port":10000},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1}` | Sablier livenessProbe |
 | logLevel | string | `"info"` | Sablier log level, rendered as `logging.level` into the config file. A `logging.level` set under `config` takes precedence. |
+| nodeSelector | object | `{}` | Node selector for all deployed pods |
 | podAnnotations | object | `{}` | Annotations for all deployed pods |
 | podLabels | object | `{}` | Labels for all deployed pods |
 | priorityClassName | string | `""` | PriorityClass name for all deployed pods |
@@ -107,3 +109,4 @@ Options passed through `extraArgs` or `extraEnv` also take precedence over the f
 | readinessProbe | object | `{"failureThreshold":3,"httpGet":{"path":"/health","port":10000},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1}` | Sablier readinessProbe |
 | replicas | int | `1` | Sablier's replicas |
 | resources | object | `{}` | Resource limits and requests for sablier |
+| tolerations | list | `[]` | Tolerations for all deployed pods |
