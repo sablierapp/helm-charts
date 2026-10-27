@@ -80,6 +80,15 @@ image:
 # -- Sablier imagePullPolicy
 imagePullPolicy: IfNotPresent
 
+# -- Sablier container lifecycle hooks. The image has no shell, so use the
+# native `sleep` action (Kubernetes >= 1.30) rather than an `exec` of `sleep`.
+# A short preStop sleep keeps the old pod serving while Service endpoints
+# are updated during rollouts and evictions.
+lifecycle: {}
+#  preStop:
+#    sleep:
+#      seconds: 5
+
 # -- Sablier readinessProbe
 readinessProbe:
   httpGet:

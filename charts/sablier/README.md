@@ -96,6 +96,7 @@ Options passed through `extraArgs` or `extraEnv` also take precedence over the f
 | image.repository | string | `"sablierapp/sablier"` | Sablier image repository |
 | image.tag | string | `""` | Sablier image tag (default) appVersion |
 | imagePullPolicy | string | `"IfNotPresent"` | Sablier imagePullPolicy |
+| lifecycle | object | `{}` | Sablier container lifecycle hooks. The image has no shell, so use the native `sleep` action (Kubernetes >= 1.30) rather than an `exec` of `sleep`. A short preStop sleep keeps the old pod serving while Service endpoints are updated during rollouts and evictions. |
 | livenessProbe | object | `{"failureThreshold":3,"httpGet":{"path":"/health","port":10000},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1}` | Sablier livenessProbe |
 | logLevel | string | `"info"` | Sablier log level, rendered as `logging.level` into the config file. A `logging.level` set under `config` takes precedence. |
 | nodeSelector | object | `{}` | Node selector for all deployed pods |
