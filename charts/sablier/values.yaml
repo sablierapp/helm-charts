@@ -105,6 +105,17 @@ livenessProbe:
 # -- PriorityClass name for all deployed pods
 priorityClassName: ""
 
+# -- Node selector for all deployed pods
+nodeSelector: {}
+#  kubernetes.io/os: linux
+
+# -- Tolerations for all deployed pods
+tolerations: []
+#  - key: dedicated
+#    operator: Equal
+#    value: infra
+#    effect: NoSchedule
+
 # -- Resource limits and requests for sablier
 resources: {}
 # requests:

@@ -98,6 +98,7 @@ Options passed through `extraArgs` or `extraEnv` also take precedence over the f
 | imagePullPolicy | string | `"IfNotPresent"` | Sablier imagePullPolicy |
 | livenessProbe | object | `{"failureThreshold":3,"httpGet":{"path":"/health","port":10000},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1}` | Sablier livenessProbe |
 | logLevel | string | `"info"` | Sablier log level, rendered as `logging.level` into the config file. A `logging.level` set under `config` takes precedence. |
+| nodeSelector | object | `{}` | Node selector for all deployed pods |
 | podAnnotations | object | `{}` | Annotations for all deployed pods |
 | podLabels | object | `{}` | Labels for all deployed pods |
 | priorityClassName | string | `""` | PriorityClass name for all deployed pods |
@@ -107,3 +108,4 @@ Options passed through `extraArgs` or `extraEnv` also take precedence over the f
 | readinessProbe | object | `{"failureThreshold":3,"httpGet":{"path":"/health","port":10000},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1}` | Sablier readinessProbe |
 | replicas | int | `1` | Sablier's replicas |
 | resources | object | `{}` | Resource limits and requests for sablier |
+| tolerations | list | `[]` | Tolerations for all deployed pods |
